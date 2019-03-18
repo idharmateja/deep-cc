@@ -10,7 +10,7 @@ import os
 from resnet import *
 
 def generate_dataset(args):
-	dataset_path = "dataset_%d_%.2f_%d_%d.pickle"%(args.num_vertices, args.sparsity, 
+	dataset_path = "dataset_%d_%.2f_%d_%d.pickle"%(args.num_vertices, 100.0*args.sparsity, 
 					args.train_samples, args.test_samples)
 
 	if not os.path.isfile(dataset_path):
@@ -85,10 +85,10 @@ if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
 	parser.add_argument("--num-vertices", type=int, default=32)
 	parser.add_argument("--sparsity", type=float, default=0.25)
-	parser.add_argument("--train-samples", type=int, default=12800)
-	parser.add_argument("--test-samples", type=int, default=1280)
+	parser.add_argument("--train-samples", type=int, default=128000)
+	parser.add_argument("--test-samples", type=int, default=12800)
 
-	parser.add_argument('--epochs', default=16, type=int, metavar='N',
+	parser.add_argument('--epochs', default=32, type=int, metavar='N',
 					help='number of total epochs to run')
 	parser.add_argument('-b', '--batch-size', default=256, type=int,
 						metavar='N',
