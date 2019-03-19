@@ -3,10 +3,10 @@ from datetime import datetime
 import numpy as np
 
 num_vertices = 64
-#sparsities = [0.0625, 0.125, 0.25, 0.375, 0.5]
-sparsities = [0.375, 0.5]
+sparsities = [0.0625, 0.125, 0.25, 0.375, 0.5]
 
 dataset_configs = [[102400,20480], [51200, 10240], [25600,5120]]
+dataset_configs.reverse()
 
 
 clone_fpath = "main_"+str(np.random.randint(30000))+".py"
@@ -23,7 +23,7 @@ for sparsity in sparsities:
 
 		
 		#key = "%d_%.2f_%d_%d"%(num_vertices, 100*sparsity, dataset_config[0], dataset_config[1])
-		#os.system("grep L1 %s*.txt | tail -1"%(key))
+		#os.system("grep L1 results/%s*.txt | tail -1"%(key))
 
 
 os.system("rm %s"%(clone_fpath))
